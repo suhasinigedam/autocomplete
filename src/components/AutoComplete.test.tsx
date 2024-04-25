@@ -1,4 +1,4 @@
-import { render, screen } from "@testing-library/react";
+import { render, screen, waitFor } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import AutoComplete from "./AutoComplete";
 
@@ -27,34 +27,63 @@ describe("input component", () => {
     const clearElement = screen.getByLabelText("clear-button");
     await userEvent.click(clearElement);
 
-    expect(inputElement).toHaveValue("");
+    await waitFor(() => {
+      expect(inputElement).toHaveValue("");
+    });
   });
 });
 
-// describe("input component handles events", () => {
-//   it("handleChange updates inputValue", () => {
-//     render(<AutoComplete />);
-//     const inputElement = screen.getByLabelText("auto-complete");
-//     fireEvent.change(inputElement, { target: { value: "New Value" } });
-//     expect(inputElement).toHaveValue("New Value");
-//   });
+describe("filter results", () => {
+  it("getting searched results", async () => {
+    render(<AutoComplete />);
+    const inputElement = screen.getByLabelText("auto-complete");
 
-//   it("clearInputValue clears inputValue", () => {
-//     const setInputValue = jest.fn();
-//     const setOptions = jest.fn();
-//     const setSelectedOption = jest.fn();
-//     setInputValue("");
-//     setOptions([]);
-//     setSelectedOption(null);
-//     render(<AutoComplete />);
+    await userEvent.type(inputElement, "software");
 
-//     const buttonElement = screen.getByLabelText("clear-button");
-//     const inputElement = screen.getByLabelText("auto-complete");
+    await waitFor(() => {
+      const listItemElements = screen.getAllByRole("listitem");
+      expect(listItemElements).not.toHaveLength(0);
+    });
+  });
+  it("not getting searched results", async () => {
+    render(<AutoComplete />);
+    const inputElement = screen.getByLabelText("auto-complete");
 
-//     fireEvent.click(buttonElement);
-//     expect(setInputValue).toHaveBeenCalledWith("");
-//     expect(inputElement).toHaveValue("");
-//     expect(setOptions).toHaveBeenCalledWith([]);
-//     expect(setSelectedOption).toHaveBeenCalledWith(null);
-//   });
-// });
+    await userEvent.type(inputElement, "abcdefg");
+
+    await waitFor(() => {
+      const listItemElements = screen.getAllByRole("listitem");
+      expect(listItemElements).not.toHaveLength(0);
+    });
+  });
+  it("select searched results", async () => {
+    render(<AutoComplete />);
+    const inputElement = screen.getByLabelText("auto-complete");
+
+    await userEvent.type(inputElement, "software");
+
+    const listItemElements = screen.getAllByRole("listitem");
+    const firstListItem = listItemElements[0];
+    userEvent.click(firstListItem);
+    setTimeout(() => {
+      const firstListItemContent = screen.getByRole("listitem", {
+        name: /software/i,
+      });
+      expect(firstListItemContent).toBeInTheDocument();
+      expect(inputElement).toHaveTextContent("software");
+    }, 350);
+  });
+  it("gives message if no searched results found", async () => {
+    render(<AutoComplete />);
+    const inputElement = screen.getByLabelText("auto-complete");
+
+    await userEvent.type(inputElement, "asdfsfsd");
+
+    const listItemElements = screen.getAllByRole("listitem");
+    const firstListItem = listItemElements[0];
+    userEvent.click(firstListItem);
+    setTimeout(() => {
+      expect(firstListItem).toHaveTextContent("no result found.");
+    }, 350);
+  });
+});

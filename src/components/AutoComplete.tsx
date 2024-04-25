@@ -1,3 +1,5 @@
+/* eslint-disable react-hooks/exhaustive-deps */
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import React, { useState, useEffect } from "react";
 import "./style.css";
 
@@ -31,11 +33,16 @@ const AutoComplete: React.FC = () => {
     fetchData();
   }, [debouncedInputValue]);
 
+  /**
+   * method to fetch data from remote api
+   */
   const fetchData = async () => {
     if (!selectedOption) {
       setIsLoading(true);
       try {
-        const response = await fetch("/api/data.json");
+        const response = await fetch(
+          "http://suhasini-autocomplete-api.s3-website.ap-south-1.amazonaws.com/data.json"
+        );
         if (!response.ok) {
           throw new Error("Failed to fetch data");
         }
@@ -50,11 +57,19 @@ const AutoComplete: React.FC = () => {
     }
   };
 
+  /**
+   * handles onchange method of input field
+   * @param event
+   */
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const value = event.target.value.replace(/[^a-zA-Z0-9\s]/g, "");
     setInputValue(value);
   };
 
+  /**
+   * Performs filtering on data as per searched criteria
+   * @param data
+   */
   const filterResults = (data: IData[]) => {
     let filteredOptions: IData[] = [];
     if (debouncedInputValue.trim().length > 0) {
@@ -64,17 +79,30 @@ const AutoComplete: React.FC = () => {
     setOptions(filteredOptions);
   };
 
+  /**
+   * handler for cross button action to clear input
+   */
   const clearInputValue = () => {
     setInputValue("");
     setOptions([]);
     setSelectedOption(null);
   };
 
+  /**
+   * highlights the matching searched string from result data set
+   * @param text
+   * @param inputValue
+   * @returns html element with highlighted string
+   */
   const highLightMatch = (text: string, inputValue: string) => {
     const regex = new RegExp(`(${inputValue})`, "gi");
     return text.replace(regex, '<span class="highlight">$1</span>');
   };
 
+  /**
+   * selects the searched result
+   * @param inputValue
+   */
   const handleOptionClick = (inputValue: string) => {
     setInputValue(inputValue);
     setSelectedOption(inputValue);
