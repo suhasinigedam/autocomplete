@@ -113,7 +113,7 @@ const AutoComplete: React.FC = () => {
     <div className="container">
       <h1>Get started with Deel today</h1>
       <p>Let's find suitable role for your organization</p>
-      <div>
+      <div className="inputContainer">
         <input
           type="text"
           onChange={handleChange}

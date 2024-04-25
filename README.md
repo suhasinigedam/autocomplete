@@ -1,6 +1,9 @@
-# Getting Started with Create React App
+# This assignment is for Deel
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Live Demo
+
+You can see live demo here 
+<a href="http://suhasini-autocomplete-component-demo.s3-website.ap-south-1.amazonaws.com/">Live Demo </a>
 
 ## Available Scripts
 
@@ -17,7 +20,7 @@ You will also see any lint errors in the console.
 ### `yarn test`
 
 Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+
 
 ### `yarn build`
 
@@ -27,20 +30,17 @@ It correctly bundles React in production mode and optimizes the build for the be
 The build is minified and the filenames include the hashes.\
 Your app is ready to be deployed!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Project Features
+1) This application is developed with React, Redux, Typescript.
+2) This application accepts input and gives suggestions in below list.
+3) This application highlights user input in given result.
+4) This project fetches data from API (AWS S3 bucket endpoint).
+5) This application is covered by Unit Test Cases written with Jest and React Testing Library.
 
-### `yarn eject`
+## Limitation & Future Scope
+1) UX improvement.
+2) Partially responsive.
+3) Automated test cases.
+4) Dedicated CI/CD pipeline can be created.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Some Glimpse of Application
