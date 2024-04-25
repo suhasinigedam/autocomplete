@@ -2,7 +2,7 @@
 
 ### 1. What is the difference between Component and PureComponent? Give an example where it might break my app.
 
-### Components
+#### Components
 
 Components are building blocks of React application.
 and single application contains multiple reusable components.
@@ -18,7 +18,9 @@ There are two types of components
    Functional components are simple JavaScript functions that accept props and return React elements describing what should be rendered.
    With the hooks introduction in React, functional components can now also have state and lifecycle features using hooks like useState, useEffect.
 
+
    #### example for Class vs Functional Components
+
 
    ##### Class Component
 
@@ -36,6 +38,7 @@ There are two types of components
 ```
 
 
+
    ##### Functional Component
 
 ```javascript
@@ -49,7 +52,8 @@ There are two types of components
     export default HelloWorld;
 ```
 
-### Pure Components
+
+#### Pure Components
 
 Pure components extends React.PureComponent instead of React.Component.
 It implements a shouldComponentUpdate().
@@ -65,14 +69,18 @@ By default, shouldComponentUpdate returns true, meaning the component will re-re
 As Context changes are not accounted for in the shouldComponentUpdate logic. Hence, re-render will occur even if shouldComponentUpdate returns false, that may break developers intended logic.
 Also causes performance issues. 
 
+
 ### 3. Describe 3 ways to pass information from a component to its PARENT.
+
 1. State Lifting
 This is one of the method which I have used recently where we moved state one level up in hierarchy.
+
 
 ```javascript
                           <WallDashboard />
                   <WallHeader />          <WallBody />
 ```
+
 Here we had a case as shown above, we have filters in WallHeader component and based on that filters WallBody should render. so we moved all filters to WallDashboard and then passed it to WallHeader and WallBody.
 
 
@@ -80,9 +88,12 @@ Here we had a case as shown above, we have filters in WallHeader component and b
 We can send callback function as a prop from parent to child component. Child component can then call this callback function with required data as arguments.In this way, child passes data to parent component.
 
 
+
 ### 4. Give 2 ways to prevent components from re-rendering.
+
 1. React.Memo()
 React.memo prevent a component from re-rendering if its props or state haven't changed based on a shallow comparison.
+
 
 ```javascript
 import React from 'react';
@@ -92,8 +103,10 @@ const HelloWorld = React.memo(({ greetings }) => {
 });
 ```
 
+
 2. shouldComponentUpdate
 It is a lifecycle method which allows you to write custom logic which returns true or false values depends on this, it allows component to re-render or not.
+
 
 ```javascript
 import React, { Component } from 'react';
@@ -108,22 +121,36 @@ class HelloWorld extends Component {
   }
 }
 ```
+
+
 ### 5. What is a fragment and why do we need it ? Give an example where it might break my app.
+
 With the help of fragments you can wrap multiple children without adding extra node to DOM
 * It avoids unnecessary DOM elements: which helps HTML clean and avoid nesting which affect css and layout.
 * Avoid extra css selectors: when used fragments it reduces complexity of css selectors.
 * Performance Optimization : Fragments helps to optimize the performance of your application by reducing number of DOM elements.
+
+  
 ```javascript
 <> </> 
 ```
+
 if closing tag forgotten it will show syntax error and break your app.
 
+
+
 ### 6. Give 3 examples of the HOC pattern.
+skipped.
+
+
 
 ### 7. What's the difference in handling exceptions in promises, callbacks and async...await?
+
 When handling exceptions in above it has differences in syntax and how error is handled.
+
 1. Promises
   * Promises use .then() and .catch() methods to catch success and error respectively.
+
 
   ```javascript
   myPromise()
@@ -135,9 +162,12 @@ When handling exceptions in above it has differences in syntax and how error is 
   });
 
   ```
+
+
 2. Callbacks
   * Callbacks are functions which are passed as arguments to another function.
   * Error as the first argument passed in callback function. 
+
 
   ```javascript
   function callbackFun(error, result) {
@@ -150,9 +180,12 @@ When handling exceptions in above it has differences in syntax and how error is 
   anotherFunction(callbackFun);
 
   ```
+
+
 3. async...await
   * async function returns promise and await is used to pause the execution and wait for promise.
   * Error handling is handled with try and catch block.
+
 
 ```javascript
   async function asyncFun() {
@@ -163,18 +196,24 @@ When handling exceptions in above it has differences in syntax and how error is 
     //Error Handling
    }
   }
-
-
   ```
 
+
+
 ### 8. How many arguments does setState take and why is it async?
+
 We use setState() to update the state of the component. Two arguments we can pass in setState.
 1. Object
+
+   
 ```javascript
     setState({message: 'Hello'})
 ```
+
+
 2. Callback Function
 setState also accepts optional second argument as callback function which will be called after the state has been updated and the component has been re-rendered. 
+
 
 ```javascript
     this.setState({ message :'Welcome' },() => {
@@ -182,9 +221,13 @@ setState also accepts optional second argument as callback function which will b
   });
 ```
 
+
 As per React, whenever state changes, affected components need to be re-rendered but in a single application there are multiple states getting changed using setState method. which results frequent re-rendering of same component. To avoid this, React batches setState operation, that's why it is asynchronous in nature as react execute it each setState from queue.
 
+
+
 ### 9. List the steps needed to migrate a Class to Function Component.
+
 Below are the steps to migrate.
 1. Understand the functionality of existing class component.
 2. Create functional component. 
@@ -195,15 +238,21 @@ Below are the steps to migrate.
 7. Remove reference to this and bindings of event.
 
 
+
 ### 10. List a few ways styles can be used with components.
+
 We can use style with different ways.
 1. inline style
 2. CSS class
 3. styled components
 4. Bootstrap css classes.
 
+
+
 ### 11. How to render an HTML string coming from the server.
+
 We can use dangerouslySetInnerHTML attribute in React. With the use of dangerouslySetInnerHTML, it allow React to render HTMl string as DOM elements. It bypasses React's built in XSS protection making sure that content you are rendering is trusted and avoid security vulnerabilities.
+
 
 ```javascript
 const HTMLRenderer = ({ htmlString }) => {
