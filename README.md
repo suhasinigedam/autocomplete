@@ -36,6 +36,8 @@ Your app is ready to be deployed!
 3) This application highlights user input in given result.
 4) This project fetches data from API (AWS S3 bucket endpoint).
 5) This application is covered by Unit Test Cases written with Jest and React Testing Library.
+6) Data is fetched from this api.
+   http://suhasini-autocomplete-api.s3-website.ap-south-1.amazonaws.com/data.json
 
 ## Limitation & Future Scope
 1) UX improvement.
