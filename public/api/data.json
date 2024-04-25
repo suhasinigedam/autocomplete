@@ -1,0 +1,44 @@
+[
+      {
+        "code": "SD001",
+        "title": "Software Developer"
+      },
+      {
+        "code": "FD002",
+        "title": "Frontend Developer"
+      },
+      {
+        "code": "BD003",
+        "title": "Backend Developer"
+      },
+      {
+        "code": "FSD004",
+        "title": "Full Stack Developer"
+      },
+      {
+        "code": "MAD005",
+        "title": "Mobile App Developer"
+      },
+      {
+        "code": "DOE006",
+        "title": "DevOps Engineer"
+      },
+      {
+        "code": "QAE007",
+        "title": "Quality Assurance Engineer"
+      },
+      {
+        "code": "SA008",
+        "title": "Software Architect"
+      },
+      {
+        "code": "SA009",
+        "title": "Systems Analyst"
+      },
+      {
+        "code": "DS010",
+        "title": "Data Scientist"
+      }
+    ]
+  
+  
