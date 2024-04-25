@@ -44,3 +44,15 @@ Your app is ready to be deployed!
 4) Dedicated CI/CD pipeline can be created.
 
 ## Some Glimpse of Application
+
+<img width="1430" alt="image" src="https://github.com/suhasinigedam/autocomplete/assets/110848623/0f91b72a-9658-46a4-ba0c-1e142c41a3c4">
+
+<img width="1430" alt="image" src="https://github.com/suhasinigedam/autocomplete/assets/110848623/2126812b-e88a-40e3-89c4-5f4574dd6f02">
+
+<img width="1430" alt="image" src="https://github.com/suhasinigedam/autocomplete/assets/110848623/5acfc30b-d8e2-4d67-a2e3-6d4be38c58b4">
+
+<img width="1430" alt="image" src="https://github.com/suhasinigedam/autocomplete/assets/110848623/8aa10301-d0e1-4983-a5a8-a56844b42e17">
+
+
+
+
