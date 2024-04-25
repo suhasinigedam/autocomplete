@@ -3,7 +3,7 @@
 ## Live Demo
 
 You can see live demo here 
-<a href="http://suhasini-autocomplete-component-demo.s3-website.ap-south-1.amazonaws.com/">Live Demo </a>
+<a target="_blank" href="http://suhasini-autocomplete-component-demo.s3-website.ap-south-1.amazonaws.com/">Live Demo </a>
 
 ## Available Scripts
 
