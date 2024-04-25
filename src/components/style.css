@@ -54,6 +54,7 @@ li {
   width: 100%;
   box-sizing: border-box;
   border: solid 0.5px #ccc;
+  cursor: pointer;
 }
 .highlight {
   background-color: yellow;
