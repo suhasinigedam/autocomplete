@@ -45,6 +45,7 @@ Your app is ready to be deployed!
 3) Automated test cases.
 4) Dedicated CI/CD pipeline can be created.
 5) Data filter logic can be done from server side.
+6) Loading and Error Handling.
 
 ## Some Glimpse of Application
 
